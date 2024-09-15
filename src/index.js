@@ -1,9 +1,8 @@
 export default function search(docs, word) {
   let result = [];
-  const regex = new RegExp(`^.*\\b(${word})\\b.*$`);
-  for (const doc of docs) {
-    if (regex.test(doc.text)) {
-      result.push(doc.id);
+  for(const doc of docs) {
+    if(doc.text.split(" ").indexOf(word) !== -1) {
+      result.push(doc.id)
     }
   }
   return result;
